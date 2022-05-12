@@ -25,6 +25,7 @@ def create_coded_domain_dict(input_gdb, input_domainField=None):
         return_dict = {gdb_name: codedDomains}
 
     else:
+        # no specific coded domain defined, return all items in gdb
         codedDomains = {domain.name: domain.codedValues.keys() for domain in arcpy.da.ListDomains(input_gdb) if domain.domainType == "CodedValue"}
         return_dict = {gdb_name: codedDomains}
 
